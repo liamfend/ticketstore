@@ -1,45 +1,18 @@
-import React, {useEffect, useRef} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  SafeAreaView,
-  UIManager,
-} from 'react-native';
+import React from 'react';
+import {StyleSheet, SafeAreaView} from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {StackParamsList} from '../types/StackParamsList';
 import One from '../components/One';
 import Two from '../components/Two';
-
-//
+import ShareList from '../components/ShareList';
 
 const Home = ({
   navigation,
   route,
 }: StackScreenProps<StackParamsList, 'Home'>) => {
-  const nodes = useRef(null);
-
-  useEffect(() => {
-    nodes.current.navigation.setOptions({
-      // headerStyle: {
-      //   backgroundColor: 'red',
-      // },
-    });
-  }, [navigation]);
   return (
-    <SafeAreaView
-      ref={n => {
-        n?.measure((x, y, width, height, pageX, pageY) => {
-          console.log(x, y, width, height, pageX, pageY);
-        });
-      }}>
-      {/* <Text>adafdsaf</Text> */}
-
-      {/* <One style={styles.scroll_view}>
-        <Text>test</Text>
-      </One> */}
-      <Two />
+    <SafeAreaView>
+      <ShareList />
     </SafeAreaView>
   );
 };
