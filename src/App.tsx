@@ -1,7 +1,11 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {StyleSheet, Text, View, SafeAreaView, StatusBar} from 'react-native';
+import {enableScreens} from 'react-native-screens';
 import Routers from './router';
+
+enableScreens();
+
 const App = () => {
   return (
     <NavigationContainer>

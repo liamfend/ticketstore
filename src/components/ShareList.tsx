@@ -1,5 +1,6 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {ReactElement} from 'react';
+import {HomeScreenNavigationProps} from '../types/StackParamsList';
 
 import {
   FlatList,
@@ -8,7 +9,6 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
 } from 'react-native';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import Heros from '../assets/Heroes';
@@ -17,25 +17,17 @@ import type {Hero} from '../types/Hero';
 interface Props {}
 
 const ShareList = (_props: Props) => {
-  // const _renderItem = ({id, photo, name}: Hero) => {
-  //   return (
-  //     <View key={id}>
-  //       <Image source={photo} />
-  //       <Text>{name}</Text>
-  //     </View>
-  //   );
-  // };
-
+  const nav = useNavigation<HomeScreenNavigationProps>();
   const _renderItem = ({id, photo, name}: Hero) => {
     return (
       <TouchableWithoutFeedback
         onPress={() => {
-          console.log('aa');
+          nav.navigate('ShareDetails', {id});
         }}>
         <View key={id} style={styles.item}>
           <Image
             source={photo}
-            style={{height: 200, flex: 1, width: '100%', borderRadius: 5}}
+            style={{height: 200, width: '100%', borderRadius: 5}}
             resizeMode={'cover'}
           />
           <View>
