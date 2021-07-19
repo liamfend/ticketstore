@@ -1,14 +1,9 @@
 import React, {useEffect} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  ScrollView,
-  SafeAreaView,
-} from 'react-native';
+import {StyleSheet, Text, View, ScrollView, SafeAreaView} from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {StackParamsList} from '../types/StackParamsList';
+import One from '../components/One';
+import Two from '../components/Two';
 
 //
 
@@ -25,12 +20,12 @@ const Home = ({
   }, [navigation]);
   return (
     <SafeAreaView>
-      <ScrollView>
-        <Text>adafdsaf</Text>
-        <View style={styles.scroll_view}>
-          <Text>test</Text>
-        </View>
-      </ScrollView>
+      {/* <Text>adafdsaf</Text> */}
+
+      {/* <One style={styles.scroll_view}>
+        <Text>test</Text>
+      </One> */}
+      <Two />
     </SafeAreaView>
   );
 };
