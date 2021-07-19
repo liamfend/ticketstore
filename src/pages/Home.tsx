@@ -1,5 +1,12 @@
-import React, {useEffect} from 'react';
-import {StyleSheet, Text, View, ScrollView, SafeAreaView} from 'react-native';
+import React, {useEffect, useRef} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  SafeAreaView,
+  UIManager,
+} from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {StackParamsList} from '../types/StackParamsList';
 import One from '../components/One';
@@ -11,15 +18,22 @@ const Home = ({
   navigation,
   route,
 }: StackScreenProps<StackParamsList, 'Home'>) => {
+  const nodes = useRef(null);
+
   useEffect(() => {
-    navigation.setOptions({
+    nodes.current.navigation.setOptions({
       // headerStyle: {
       //   backgroundColor: 'red',
       // },
     });
   }, [navigation]);
   return (
-    <SafeAreaView>
+    <SafeAreaView
+      ref={n => {
+        n?.measure((x, y, width, height, pageX, pageY) => {
+          console.log(x, y, width, height, pageX, pageY);
+        });
+      }}>
       {/* <Text>adafdsaf</Text> */}
 
       {/* <One style={styles.scroll_view}>
