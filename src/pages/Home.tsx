@@ -18,25 +18,12 @@ const Home = ({
 }: StackScreenProps<StackParamsList, 'Home'>) => {
   useEffect(() => {
     navigation.setOptions({
-      headerStyle: {
-        backgroundColor: 'red',
-      },
+      // headerStyle: {
+      //   backgroundColor: 'red',
+      // },
     });
   }, [navigation]);
   return (
-    // <View style={styles.wrapper}>
-    //   <Text>Home</Text>
-
-    //   <Button
-    //     title={'click'}
-    //     onPress={() => {
-    //       navigation.navigate('Consult', {userId: 'aaa'});
-    //       // navigation;
-    //       //props.navigation.navigate('Mine');
-    //     }}
-    //   />
-
-    // </View>
     <SafeAreaView>
       <ScrollView>
         <Text>adafdsaf</Text>
@@ -58,6 +45,6 @@ const styles = StyleSheet.create({
   },
   scroll_view: {
     height: 2000,
-    backgroundColor: 'red',
+    backgroundColor: 'green',
   },
 });

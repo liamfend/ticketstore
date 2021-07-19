@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {createStackScreenNavigator} from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import {StackParamsList} from './types/StackParamsList';
 import {} from '@react-navigation/stack';
 
@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import Consult from './pages/Consult';
 import Mine from './pages/Mine';
 
-const Stack = createStackScreenNavigator<StackParamsList>();
+const Stack = createStackNavigator<StackParamsList>();
 
 function App() {
   return (
