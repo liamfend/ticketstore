@@ -7,7 +7,7 @@ import {
   ScrollView,
   SafeAreaView,
 } from 'react-native';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {StackScreenProps} from '@react-navigation/stack';
 import {StackParamsList} from '../types/StackParamsList';
 
 //
@@ -15,12 +15,9 @@ import {StackParamsList} from '../types/StackParamsList';
 const Home = ({
   navigation,
   route,
-}: NativeStackScreenProps<StackParamsList, 'Home'>) => {
+}: StackScreenProps<StackParamsList, 'Home'>) => {
   useEffect(() => {
     navigation.setOptions({
-      headerShadowVisible: false,
-      headerTranslucent: true,
-      headerBlurEffect: 'dark',
       headerStyle: {
         backgroundColor: 'red',
       },

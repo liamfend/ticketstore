@@ -1,4 +1,4 @@
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 export type StackParamsList = {
   Home: undefined;
@@ -6,7 +6,7 @@ export type StackParamsList = {
   Mine: undefined;
 };
 
-export type ConsultScreenNavigationProps = NativeStackNavigationProp<
+export type ConsultScreenNavigationProps = StackNavigationProp<
   StackParamsList,
   'Home'
 >;

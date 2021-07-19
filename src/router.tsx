@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackScreenNavigator} from '@react-navigation/stack';
 import {StackParamsList} from './types/StackParamsList';
-import {} from '@react-navigation/native-stack';
+import {} from '@react-navigation/stack';
 
 import Home from './pages/Home';
 import Consult from './pages/Consult';
 import Mine from './pages/Mine';
 
-const Stack = createNativeStackNavigator<StackParamsList>();
+const Stack = createStackScreenNavigator<StackParamsList>();
 
 function App() {
   return (
