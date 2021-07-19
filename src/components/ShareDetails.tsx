@@ -32,9 +32,10 @@ const ShareDetails = ({navigation, route}: Props) => {
   );
 };
 
-ShareDetails.sharedElements = (navigation, otherNavigation, showing) => {
-  const item = navigation.getParam('id');
-  return [`${item}`];
+ShareDetails.sharedElements = (route, otherRoute, showing) => {
+  const id = route.params.id;
+
+  return [`${id}`];
 };
 
 export default ShareDetails;
