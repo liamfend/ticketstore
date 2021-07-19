@@ -13,7 +13,7 @@ import {
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import Heros from '../assets/Heroes';
 import type {Hero} from '../types/Hero';
-
+import {SharedElement} from 'react-navigation-shared-element';
 interface Props {}
 
 const ShareList = (_props: Props) => {
@@ -25,11 +25,13 @@ const ShareList = (_props: Props) => {
           nav.navigate('ShareDetails', {id});
         }}>
         <View key={id} style={styles.item}>
-          <Image
-            source={photo}
-            style={{height: 200, width: '100%', borderRadius: 5}}
-            resizeMode={'cover'}
-          />
+          <SharedElement id={id}>
+            <Image
+              source={photo}
+              style={{height: 200, width: '100%', borderRadius: 5}}
+              resizeMode={'cover'}
+            />
+          </SharedElement>
           <View>
             <Text>{name}</Text>
           </View>

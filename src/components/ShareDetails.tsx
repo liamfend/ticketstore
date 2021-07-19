@@ -1,12 +1,10 @@
 import React, {useRef} from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
-import {
-  SharedElement,
-  SharedElementTransition,
-  nodeFromRef,
-} from 'react-native-shared-element';
+
 import {ShareDetailsStackScreenProps} from '../types/StackParamsList';
 import Heroes from '../assets/Heroes';
+import {SharedElement} from 'react-navigation-shared-element';
+
 interface Props extends ShareDetailsStackScreenProps {}
 
 const ShareDetails = ({navigation, route}: Props) => {
@@ -18,11 +16,13 @@ const ShareDetails = ({navigation, route}: Props) => {
       <View style={styles.wrapper}>
         <Text>{detail.name}</Text>
       </View>
-      <Image
-        style={{height: 200, width: '100%', borderRadius: 5}}
-        source={detail.photo}
-        resizeMode={'contain'}
-      />
+      <SharedElement id={detail.id}>
+        <Image
+          style={{height: 200, width: '100%', borderRadius: 5}}
+          source={detail.photo}
+          resizeMode={'contain'}
+        />
+      </SharedElement>
       <View style={styles.wrapper}>
         <Text>{detail?.description}</Text>
       </View>
@@ -30,6 +30,11 @@ const ShareDetails = ({navigation, route}: Props) => {
   ) : (
     <></>
   );
+};
+
+ShareDetails.sharedElements = (navigation, otherNavigation, showing) => {
+  const item = navigation.getParam('id');
+  return [`${item}`];
 };
 
 export default ShareDetails;
